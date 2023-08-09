@@ -36,10 +36,13 @@ class Solution {
             }
         }
         answer = new int[arr.size()];
-        int idx = 0;
-        for (int num :
-                arr) {
-            answer[idx++] = num;
+        // int idx = 0;
+        // for (int num :
+        //         arr) {
+        //     answer[idx++] = num;
+        // }
+        for(int i = 0; i<arr.size();i++){
+            answer[i] = arr.get(i);
         }
         return answer;
     }
