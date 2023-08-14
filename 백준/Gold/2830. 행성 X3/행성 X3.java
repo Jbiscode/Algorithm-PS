@@ -1,38 +1,33 @@
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import java.util.*;
+import java.io.*;
 
 public class Main {
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws Exception {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        int count = Integer.parseInt(br.readLine());
-        int[] inputs = new int[count];
-        int[] isOne = new int[20]; // 2진수 1,000,000 까지
-        int tmp = 0;
-        long answer = 0L;
-        int idx;
-        int input;
-
-        for (int i = 0; i < count; i++) {
-            inputs[i] = Integer.parseInt(br.readLine());
+        int n = Integer.parseInt(br.readLine());
+        int[] arr= new int[n];
+        int max = 0;
+       
+        for(int i = 0 ; i<n ; i++){
+            arr[i] = Integer.parseInt(br.readLine());
+            max = Math.max(arr[i], max);
         }
-
-        for (int i = 0; i < count; i++) {
-            input = inputs[i];
-            idx = 0;
-            while (input != 0) {
-                tmp = input % 2;
-                input = input / 2;
-                if (tmp == 1) {
-                    isOne[idx] ++;      // 자릿수가 1인경우를 체크
-                }
-                idx++;
-            }
+        
+        long ss = 1L;
+        long answer = 0;
+        
+        while(max != 0){
+            int count1 = 0;
+            for(int i=0; i <arr.length ;i++){
+                if(arr[i] == 0)continue;
+                if(arr[i]%2 == 1) count1++;
+                arr[i] /= 2;
+            }    
+            answer += ss * count1 * (n - count1);
+            ss = ss << 1;
+            max/=2;
         }
-        for (int i = 0; i < 20; i++) {
-            // 자릿수마다 << i만큼 비트이동 (2배)
-            answer += (long) Math.pow(2,i) * isOne[i] * (count - isOne[i]);
-        }
-        System.out.println(answer);
+        
+        System.out.print(arr.length==1 ? arr[0] : answer);
     }
 }
