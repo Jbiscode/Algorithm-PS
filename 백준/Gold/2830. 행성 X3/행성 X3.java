@@ -12,10 +12,8 @@ public class Main {
             arr[i] = Integer.parseInt(br.readLine());
             max = Math.max(arr[i], max);
         }
-        
-        long ss = 1L;
+        long ss = 1;
         long answer = 0;
-        
         while(max != 0){
             int count1 = 0;
             for(int i=0; i <arr.length ;i++){
