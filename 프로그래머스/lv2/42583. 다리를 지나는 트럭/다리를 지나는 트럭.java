@@ -1,6 +1,5 @@
 import java.util.LinkedList;
 import java.util.Queue;
-
 class Solution {
     public int solution(int bridge_length, int weight, int[] truck_weights) {
         // 경과시간
@@ -12,7 +11,7 @@ class Solution {
         //현재 다리가 견디고있는 하중
         int bridgeWeight = 0;
         int truckIdx = 0;
-        
+
         // 모든 트럭이 다리 위로 올라갈때까지
         while (truckIdx < truck_weights.length) {
             bridgeWeight -= queue.poll();
