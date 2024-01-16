@@ -34,12 +34,7 @@ class Solution {
                 }
             }
         }
-        if (rdx > wallpaper.length) {
-            rdx = wallpaper.length;
-        }
-        if (rdy > wallpaper[0].length()) {
-            rdy = wallpaper[0].length();
-        }
+      
         answer = new int[]{lux, luy, rdx, rdy};
         return answer;
     }
