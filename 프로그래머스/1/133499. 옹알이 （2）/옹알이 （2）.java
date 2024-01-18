@@ -35,9 +35,9 @@ class Solution {
             for (String s : canSpeak) {
                 while (babbling[i].contains(s)) {
                     if (!babbling[i].contains(s + s)) {
-                        babbling[i] = babbling[i].replaceFirst(s, " ");
+                        babbling[i] = babbling[i].replaceFirst(s, "*");
                         
-                        st = new StringTokenizer(babbling[i], " ");
+                        st = new StringTokenizer(babbling[i], "*");
                         
                         if (!st.hasMoreTokens()) {
                             answer++;
