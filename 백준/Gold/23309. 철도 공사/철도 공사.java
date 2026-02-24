@@ -37,20 +37,26 @@ public class Main {
       st = new StringTokenizer(br.readLine());
       int idx,data;
       String command = st.nextToken();
-      if (command.equals("BP")) {
-        idx = Integer.parseInt(st.nextToken());
-        data = Integer.parseInt(st.nextToken());
-        linkedList.addPrev(idx, data);
-      }else if(command.equals("BN")){
-        idx = Integer.parseInt(st.nextToken());
-        data = Integer.parseInt(st.nextToken());
-        linkedList.addNext(idx, data);
-      }else if(command.equals("CP")){
-        idx = Integer.parseInt(st.nextToken());
-        linkedList.removePrev(idx);
-      }else if(command.equals("CN")){
-        idx = Integer.parseInt(st.nextToken());
-        linkedList.removeNext(idx);
+      char a = command.charAt(0);
+      char b = command.charAt(1);
+      if (a == 'B') {
+        if (b=='P') {
+          idx = Integer.parseInt(st.nextToken());
+          data = Integer.parseInt(st.nextToken());
+          linkedList.addPrev(idx, data);
+        }else if(b == 'N'){
+          idx = Integer.parseInt(st.nextToken());
+          data = Integer.parseInt(st.nextToken());
+          linkedList.addNext(idx, data);
+        }
+      }else if(a == 'C'){
+        if (b == 'P') {
+          idx = Integer.parseInt(st.nextToken());
+          linkedList.removePrev(idx);
+        }else if (b == 'N'){
+          idx = Integer.parseInt(st.nextToken());
+          linkedList.removeNext(idx);
+        }
       }
     }
 
