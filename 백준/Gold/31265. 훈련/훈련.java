@@ -79,8 +79,8 @@ public class Main {
             dp_group[w] = Math.max(dp_group[w], v + dp_group[w - v]);
           }
         }
-        dp = dp_group;
       }
+      dp = dp_group;
     }
 
     answer = IMPOSIBLE;
